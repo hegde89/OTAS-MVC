@@ -1,0 +1,17 @@
+﻿@model ABC.Models.StudentTeacherRetrival
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Please Enter usn to Proceed</h2>
+<br/>
+@using (Html.BeginForm("Index", "Student", FormMethod.Post))
+{ 
+    @Html.LabelFor(m => m.USN)<br />
+    @Html.TextBoxFor(m => m.USN)
+<br/><br />
+    @Html.ValidationMessage("USN");<br /><br />
+
+    <input type="submit" value="Submit" class="btn btn-default" />
+}
+

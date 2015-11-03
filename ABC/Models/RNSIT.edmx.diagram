@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dd538171e8d14b4b95a439dc13d63aa8" Name="Diagram1">
+        <EntityTypeShape EntityType="RNSITModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.Attendance" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.AttendanceCount" Width="1.5" PointX="8.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.DEPT" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.ELECTIVE" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.STUDENT" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.SubComb" Width="1.5" PointX="8.25" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.Subject" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.Teacher" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.Valid" Width="1.5" PointX="5.25" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.LowerTable" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.RID_TABLE" Width="1.5" PointX="10.5" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.SubComb20140" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.SubComb2014E" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.Result" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RNSITModel.sucomb" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="RNSITModel.FK_Attendance_STUDENT" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_Attendance_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_AttendanceCount_STUDENT" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_AttendanceCount_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_STUDENT_DEPT" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_SubComb_DEPT" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_Subject_DEPT" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_Teacher_DEPT" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_ELECTIVE_STUDENT" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_ValidS_STUDENT" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_RID_TABLE_SubComb" ManuallyRouted="false" />
+        <AssociationConnector Association="RNSITModel.FK_SubComb_Teacher" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

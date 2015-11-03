@@ -1,0 +1,1904 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RNSITModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Dept" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="DateHeld" />
+            <PropertyRef Name="USN" />
+            <PropertyRef Name="Subject" />
+          </Key>
+          <Property Name="DateHeld" Type="datetime" Nullable="false" />
+          <Property Name="USN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="present" Type="bit" />
+        </EntityType>
+        <EntityType Name="AttendanceCount">
+          <Key>
+            <PropertyRef Name="USN" />
+            <PropertyRef Name="Subject" />
+          </Key>
+          <Property Name="USN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Attended" Type="int" />
+          <Property Name="I1" Type="int" />
+          <Property Name="I2" Type="int" />
+          <Property Name="I3" Type="int" />
+        </EntityType>
+        <EntityType Name="DEPT">
+          <Key>
+            <PropertyRef Name="DeptId" />
+          </Key>
+          <Property Name="DeptId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="DeptName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ELECTIVE">
+          <Key>
+            <PropertyRef Name="USN" />
+          </Key>
+          <Property Name="USN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ELECTIVE1" Type="varchar" MaxLength="50" />
+          <Property Name="ELECTIVE2" Type="varchar" MaxLength="50" />
+          <Property Name="ELECTIVE3" Type="varchar" MaxLength="50" />
+          <Property Name="ELECTIVE4" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RNSIT.dbo.LowerTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="LowerTable">
+          <Key>
+            <PropertyRef Name="Question" />
+            <PropertyRef Name="Ones" />
+            <PropertyRef Name="Twos" />
+            <PropertyRef Name="Threes" />
+            <PropertyRef Name="Fours" />
+          </Key>
+          <Property Name="Question" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="Ones" Type="int" Nullable="false" />
+          <Property Name="Twos" Type="int" Nullable="false" />
+          <Property Name="Threes" Type="int" Nullable="false" />
+          <Property Name="Fours" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RNSIT.dbo.RID_TABLE' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="RID_TABLE">
+          <Key>
+            <PropertyRef Name="RID" />
+            <PropertyRef Name="A1" />
+            <PropertyRef Name="A2" />
+            <PropertyRef Name="A3" />
+            <PropertyRef Name="A4" />
+            <PropertyRef Name="A5" />
+            <PropertyRef Name="A6" />
+            <PropertyRef Name="A7" />
+            <PropertyRef Name="A8" />
+            <PropertyRef Name="A9" />
+            <PropertyRef Name="A10" />
+          </Key>
+          <Property Name="RID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="A1" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A2" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A3" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A4" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A5" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A6" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A7" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A8" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A9" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A10" Type="numeric" Precision="10" Scale="4" Nullable="false" />
+        </EntityType>
+        <EntityType Name="STUDENT">
+          <Key>
+            <PropertyRef Name="USN" />
+          </Key>
+          <Property Name="USN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DOB" Type="nvarchar" MaxLength="10" />
+          <Property Name="FATHERNAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="MOTHERNAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="GUARDIANNAME" Type="nvarchar" MaxLength="100" />
+          <Property Name="PERM_ADDRESS" Type="nvarchar" MaxLength="500" />
+          <Property Name="LOC_ADDRESS" Type="nvarchar" MaxLength="500" />
+          <Property Name="MOBILE" Type="nvarchar" MaxLength="10" />
+          <Property Name="PRIMARY_CONTACT" Type="nvarchar" MaxLength="13" />
+          <Property Name="DeptID" Type="nchar" MaxLength="10" />
+          <Property Name="Sem" Type="int" />
+          <Property Name="Section" Type="nchar" MaxLength="10" />
+          <Property Name="EMail" Type="nvarchar" MaxLength="50" />
+          <Property Name="SSLC" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="PUC" Type="decimal" Precision="4" Scale="2" />
+          <Property Name="Batch" Type="int" />
+        </EntityType>
+        <EntityType Name="SubComb">
+          <Key>
+            <PropertyRef Name="CombId" />
+          </Key>
+          <Property Name="CombId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sem" Type="int" Nullable="false" />
+          <Property Name="DeptId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Section" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CGPA" Type="numeric" Precision="20" Scale="3" />
+          <Property Name="Elective" Type="bit" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Percentile" Type="numeric" Precision="20" Scale="3" />
+          <Property Name="ClassesHeld" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RNSIT.dbo.SubComb20140' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SubComb20140">
+          <Key>
+            <PropertyRef Name="CombId" />
+            <PropertyRef Name="TID" />
+            <PropertyRef Name="SubCode" />
+            <PropertyRef Name="Sem" />
+            <PropertyRef Name="DeptId" />
+            <PropertyRef Name="Section" />
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="CombId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sem" Type="int" Nullable="false" />
+          <Property Name="DeptId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Section" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CGPA" Type="numeric" Precision="20" Scale="3" />
+          <Property Name="Elective" Type="bit" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Percentile" Type="numeric" Precision="20" Scale="3" />
+          <Property Name="ClassesHeld" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RNSIT.dbo.SubComb2014E' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SubComb2014E">
+          <Key>
+            <PropertyRef Name="CombId" />
+            <PropertyRef Name="TID" />
+            <PropertyRef Name="SubCode" />
+            <PropertyRef Name="Sem" />
+            <PropertyRef Name="DeptId" />
+            <PropertyRef Name="Section" />
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="CombId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sem" Type="int" Nullable="false" />
+          <Property Name="DeptId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Section" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CGPA" Type="numeric" Precision="20" Scale="3" />
+          <Property Name="Elective" Type="bit" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Percentile" Type="numeric" Precision="20" Scale="3" />
+          <Property Name="ClassesHeld" Type="int" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubCode" />
+          </Key>
+          <Property Name="SubCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubName" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Sem" Type="int" Nullable="false" />
+          <Property Name="DeptId" Type="nchar" MaxLength="10" />
+          <Property Name="Elective" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="TID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DeptId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Designation" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="E-mail" Type="nchar" MaxLength="100" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ValidS">
+          <Key>
+            <PropertyRef Name="USN" />
+          </Key>
+          <Property Name="USN" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PASSGEN" Type="varchar" MaxLength="50" />
+          <Property Name="COUNTER" Type="int" Nullable="false" />
+          <Property Name="FG" Type="bit" Nullable="false" />
+          <Property Name="STUDENTDETAILS" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RNSIT.dbo.Result' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="CombId" />
+            <PropertyRef Name="TeacherName" />
+            <PropertyRef Name="DeptId" />
+            <PropertyRef Name="SubCode" />
+            <PropertyRef Name="Sem" />
+            <PropertyRef Name="Section" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="CombId" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DeptId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="SubCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sem" Type="int" Nullable="false" />
+          <Property Name="Section" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Expr1" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="CGPA" Type="numeric" Precision="20" Scale="3" />
+          <Property Name="Percentile" Type="numeric" Precision="20" Scale="3" />
+          <Property Name="Total_Given" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'RNSIT.dbo.sucombs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="sucombs">
+          <Key>
+            <PropertyRef Name="TeacherName" />
+            <PropertyRef Name="DeptId" />
+            <PropertyRef Name="SubCode" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="TeacherName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DeptId" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="SubCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Expr1" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Sem" Type="int" />
+          <Property Name="Section" Type="nchar" MaxLength="10" />
+          <Property Name="CGPA" Type="numeric" Precision="20" Scale="3" />
+          <Property Name="Percentile" Type="numeric" Precision="20" Scale="3" />
+          <Property Name="Total" Type="int" />
+        </EntityType>
+        <Association Name="FK_Attendance_STUDENT">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="USN" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="USN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendance_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubCode" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="Subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AttendanceCount_STUDENT">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="AttendanceCount" Type="Self.AttendanceCount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="USN" />
+            </Principal>
+            <Dependent Role="AttendanceCount">
+              <PropertyRef Name="USN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AttendanceCount_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+          <End Role="AttendanceCount" Type="Self.AttendanceCount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubCode" />
+            </Principal>
+            <Dependent Role="AttendanceCount">
+              <PropertyRef Name="Subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ELECTIVE_STUDENT">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ELECTIVE" Type="Self.ELECTIVE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="USN" />
+            </Principal>
+            <Dependent Role="ELECTIVE">
+              <PropertyRef Name="USN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RID_TABLE_SubComb">
+          <End Role="SubComb" Type="Self.SubComb" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RID_TABLE" Type="Self.RID_TABLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubComb">
+              <PropertyRef Name="CombId" />
+            </Principal>
+            <Dependent Role="RID_TABLE">
+              <PropertyRef Name="RID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_DEPT">
+          <End Role="DEPT" Type="Self.DEPT" Multiplicity="0..1" />
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPT">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="STUDENT">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubComb_DEPT">
+          <End Role="DEPT" Type="Self.DEPT" Multiplicity="1" />
+          <End Role="SubComb" Type="Self.SubComb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPT">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="SubComb">
+              <PropertyRef Name="DeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubComb_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="SubComb" Type="Self.SubComb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TID" />
+            </Principal>
+            <Dependent Role="SubComb">
+              <PropertyRef Name="TID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subject_DEPT">
+          <End Role="DEPT" Type="Self.DEPT" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPT">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="DeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_DEPT">
+          <End Role="DEPT" Type="Self.DEPT" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPT">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="DeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ValidS_STUDENT">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ValidS" Type="Self.ValidS" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="USN" />
+            </Principal>
+            <Dependent Role="ValidS">
+              <PropertyRef Name="USN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="A1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="A10" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="A2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="A3" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="A4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="A5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="A6" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="A7" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="A8" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="A9" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="calc" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="department" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="dept" Type="nchar" Mode="In" />
+        </Function>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="GetLowerTableByRID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="getScores" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetTeacherDetailsByUSN" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usn" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="NewInsertCommand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="RID" Type="nvarchar" Mode="In" />
+          <Parameter Name="A1" Type="numeric" Mode="In" />
+          <Parameter Name="A2" Type="numeric" Mode="In" />
+          <Parameter Name="A3" Type="numeric" Mode="In" />
+          <Parameter Name="A4" Type="numeric" Mode="In" />
+          <Parameter Name="A5" Type="numeric" Mode="In" />
+          <Parameter Name="A6" Type="numeric" Mode="In" />
+          <Parameter Name="A7" Type="numeric" Mode="In" />
+          <Parameter Name="A8" Type="numeric" Mode="In" />
+          <Parameter Name="A9" Type="numeric" Mode="In" />
+          <Parameter Name="A10" Type="numeric" Mode="In" />
+        </Function>
+        <Function Name="NewSelectCommand" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="passgen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="rating4c" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="rid" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetDepartments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetGivenNotGiven" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetPasswordsForClass" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="deptId" Type="varchar" Mode="In" />
+          <Parameter Name="sem" Type="int" Mode="In" />
+          <Parameter Name="sec" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spGetResultshv" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="spGetSection" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DeptId" Type="varchar" Mode="In" />
+          <Parameter Name="Sem" Type="int" Mode="In" />
+        </Function>
+        <Function Name="spGetSem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DeptId" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="spGetUpperTable" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="combid" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="RNSITModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Attendance" EntityType="Self.Attendance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AttendanceCount" EntityType="Self.AttendanceCount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DEPT" EntityType="Self.DEPT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ELECTIVE" EntityType="Self.ELECTIVE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="STUDENT" EntityType="Self.STUDENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SubComb" EntityType="Self.SubComb" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ValidS" EntityType="Self.ValidS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LowerTable" EntityType="Self.LowerTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [LowerTable].[Question] AS [Question], 
+    [LowerTable].[Ones] AS [Ones], 
+    [LowerTable].[Twos] AS [Twos], 
+    [LowerTable].[Threes] AS [Threes], 
+    [LowerTable].[Fours] AS [Fours]
+    FROM [dbo].[LowerTable] AS [LowerTable]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RID_TABLE" EntityType="Self.RID_TABLE" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [RID_TABLE].[RID] AS [RID], 
+    [RID_TABLE].[A1] AS [A1], 
+    [RID_TABLE].[A2] AS [A2], 
+    [RID_TABLE].[A3] AS [A3], 
+    [RID_TABLE].[A4] AS [A4], 
+    [RID_TABLE].[A5] AS [A5], 
+    [RID_TABLE].[A6] AS [A6], 
+    [RID_TABLE].[A7] AS [A7], 
+    [RID_TABLE].[A8] AS [A8], 
+    [RID_TABLE].[A9] AS [A9], 
+    [RID_TABLE].[A10] AS [A10]
+    FROM [dbo].[RID_TABLE] AS [RID_TABLE]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SubComb20140" EntityType="Self.SubComb20140" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SubComb20140].[CombId] AS [CombId], 
+    [SubComb20140].[TID] AS [TID], 
+    [SubComb20140].[SubCode] AS [SubCode], 
+    [SubComb20140].[Sem] AS [Sem], 
+    [SubComb20140].[DeptId] AS [DeptId], 
+    [SubComb20140].[Section] AS [Section], 
+    [SubComb20140].[CGPA] AS [CGPA], 
+    [SubComb20140].[Elective] AS [Elective], 
+    [SubComb20140].[Count] AS [Count], 
+    [SubComb20140].[Percentile] AS [Percentile], 
+    [SubComb20140].[ClassesHeld] AS [ClassesHeld]
+    FROM [dbo].[SubComb20140] AS [SubComb20140]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SubComb2014E" EntityType="Self.SubComb2014E" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SubComb2014E].[CombId] AS [CombId], 
+    [SubComb2014E].[TID] AS [TID], 
+    [SubComb2014E].[SubCode] AS [SubCode], 
+    [SubComb2014E].[Sem] AS [Sem], 
+    [SubComb2014E].[DeptId] AS [DeptId], 
+    [SubComb2014E].[Section] AS [Section], 
+    [SubComb2014E].[CGPA] AS [CGPA], 
+    [SubComb2014E].[Elective] AS [Elective], 
+    [SubComb2014E].[Count] AS [Count], 
+    [SubComb2014E].[Percentile] AS [Percentile], 
+    [SubComb2014E].[ClassesHeld] AS [ClassesHeld]
+    FROM [dbo].[SubComb2014E] AS [SubComb2014E]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Result" EntityType="Self.Result" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Result].[CombId] AS [CombId], 
+    [Result].[TeacherName] AS [TeacherName], 
+    [Result].[DeptId] AS [DeptId], 
+    [Result].[SubCode] AS [SubCode], 
+    [Result].[Sem] AS [Sem], 
+    [Result].[Section] AS [Section], 
+    [Result].[Expr1] AS [Expr1], 
+    [Result].[CGPA] AS [CGPA], 
+    [Result].[Percentile] AS [Percentile], 
+    [Result].[Total_Given] AS [Total_Given]
+    FROM [dbo].[Result] AS [Result]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="sucombs" EntityType="Self.sucombs" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [sucombs].[TeacherName] AS [TeacherName], 
+    [sucombs].[DeptId] AS [DeptId], 
+    [sucombs].[SubCode] AS [SubCode], 
+    [sucombs].[Expr1] AS [Expr1], 
+    [sucombs].[Sem] AS [Sem], 
+    [sucombs].[Section] AS [Section], 
+    [sucombs].[CGPA] AS [CGPA], 
+    [sucombs].[Percentile] AS [Percentile], 
+    [sucombs].[Total] AS [Total]
+    FROM [dbo].[sucombs] AS [sucombs]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Attendance_STUDENT" Association="Self.FK_Attendance_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendance_Subject" Association="Self.FK_Attendance_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="Attendance" EntitySet="Attendance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AttendanceCount_STUDENT" Association="Self.FK_AttendanceCount_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="AttendanceCount" EntitySet="AttendanceCount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AttendanceCount_Subject" Association="Self.FK_AttendanceCount_Subject">
+            <End Role="Subject" EntitySet="Subject" />
+            <End Role="AttendanceCount" EntitySet="AttendanceCount" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ELECTIVE_STUDENT" Association="Self.FK_ELECTIVE_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="ELECTIVE" EntitySet="ELECTIVE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RID_TABLE_SubComb" Association="Self.FK_RID_TABLE_SubComb">
+            <End Role="SubComb" EntitySet="SubComb" />
+            <End Role="RID_TABLE" EntitySet="RID_TABLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_DEPT" Association="Self.FK_STUDENT_DEPT">
+            <End Role="DEPT" EntitySet="DEPT" />
+            <End Role="STUDENT" EntitySet="STUDENT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubComb_DEPT" Association="Self.FK_SubComb_DEPT">
+            <End Role="DEPT" EntitySet="DEPT" />
+            <End Role="SubComb" EntitySet="SubComb" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubComb_Teacher" Association="Self.FK_SubComb_Teacher">
+            <End Role="Teacher" EntitySet="Teacher" />
+            <End Role="SubComb" EntitySet="SubComb" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subject_DEPT" Association="Self.FK_Subject_DEPT">
+            <End Role="DEPT" EntitySet="DEPT" />
+            <End Role="Subject" EntitySet="Subject" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_DEPT" Association="Self.FK_Teacher_DEPT">
+            <End Role="DEPT" EntitySet="DEPT" />
+            <End Role="Teacher" EntitySet="Teacher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ValidS_STUDENT" Association="Self.FK_ValidS_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENT" />
+            <End Role="ValidS" EntitySet="ValidS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RNSITModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dept" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Attendance">
+          <Key>
+            <PropertyRef Name="DateHeld" />
+            <PropertyRef Name="USN" />
+            <PropertyRef Name="Subject" />
+          </Key>
+          <Property Name="DateHeld" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="USN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="present" Type="Boolean" />
+          <NavigationProperty Name="STUDENT" Relationship="Self.FK_Attendance_STUDENT" FromRole="Attendance" ToRole="STUDENT" />
+          <NavigationProperty Name="Subject1" Relationship="Self.FK_Attendance_Subject" FromRole="Attendance" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="AttendanceCount">
+          <Key>
+            <PropertyRef Name="USN" />
+            <PropertyRef Name="Subject" />
+          </Key>
+          <Property Name="USN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Attended" Type="Int32" />
+          <Property Name="I1" Type="Int32" />
+          <Property Name="I2" Type="Int32" />
+          <Property Name="I3" Type="Int32" />
+          <NavigationProperty Name="STUDENT" Relationship="Self.FK_AttendanceCount_STUDENT" FromRole="AttendanceCount" ToRole="STUDENT" />
+          <NavigationProperty Name="Subject1" Relationship="Self.FK_AttendanceCount_Subject" FromRole="AttendanceCount" ToRole="Subject" />
+        </EntityType>
+        <EntityType Name="DEPT">
+          <Key>
+            <PropertyRef Name="DeptId" />
+          </Key>
+          <Property Name="DeptId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="DeptName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="STUDENTs" Relationship="Self.FK_STUDENT_DEPT" FromRole="DEPT" ToRole="STUDENT" />
+          <NavigationProperty Name="SubCombs" Relationship="Self.FK_SubComb_DEPT" FromRole="DEPT" ToRole="SubComb" />
+          <NavigationProperty Name="Subjects" Relationship="Self.FK_Subject_DEPT" FromRole="DEPT" ToRole="Subject" />
+          <NavigationProperty Name="Teachers" Relationship="Self.FK_Teacher_DEPT" FromRole="DEPT" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="ELECTIVE">
+          <Key>
+            <PropertyRef Name="USN" />
+          </Key>
+          <Property Name="USN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ELECTIVE1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ELECTIVE2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ELECTIVE3" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ELECTIVE4" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="STUDENT" Relationship="Self.FK_ELECTIVE_STUDENT" FromRole="ELECTIVE" ToRole="STUDENT" />
+        </EntityType>
+        <EntityType Name="STUDENT">
+          <Key>
+            <PropertyRef Name="USN" />
+          </Key>
+          <Property Name="USN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DOB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FATHERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MOTHERNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="GUARDIANNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PERM_ADDRESS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="LOC_ADDRESS" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="MOBILE" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="PRIMARY_CONTACT" Type="String" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="DeptID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Sem" Type="Int32" />
+          <Property Name="Section" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="EMail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SSLC" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="PUC" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="Batch" Type="Int32" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendance_STUDENT" FromRole="STUDENT" ToRole="Attendance" />
+          <NavigationProperty Name="AttendanceCounts" Relationship="Self.FK_AttendanceCount_STUDENT" FromRole="STUDENT" ToRole="AttendanceCount" />
+          <NavigationProperty Name="DEPT" Relationship="Self.FK_STUDENT_DEPT" FromRole="STUDENT" ToRole="DEPT" />
+          <NavigationProperty Name="ELECTIVE" Relationship="Self.FK_ELECTIVE_STUDENT" FromRole="STUDENT" ToRole="ELECTIVE" />
+          <NavigationProperty Name="Valid" Relationship="Self.FK_ValidS_STUDENT" FromRole="STUDENT" ToRole="ValidS" />
+        </EntityType>
+        <EntityType Name="SubComb">
+          <Key>
+            <PropertyRef Name="CombId" />
+          </Key>
+          <Property Name="CombId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sem" Type="Int32" Nullable="false" />
+          <Property Name="DeptId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Section" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CGPA" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="Elective" Type="Boolean" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Percentile" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="ClassesHeld" Type="Int32" />
+          <NavigationProperty Name="DEPT" Relationship="Self.FK_SubComb_DEPT" FromRole="SubComb" ToRole="DEPT" />
+          <NavigationProperty Name="RID_TABLE" Relationship="Self.FK_RID_TABLE_SubComb" FromRole="SubComb" ToRole="RID_TABLE" />
+          <NavigationProperty Name="Teacher" Relationship="Self.FK_SubComb_Teacher" FromRole="SubComb" ToRole="Teacher" />
+        </EntityType>
+        <EntityType Name="Subject">
+          <Key>
+            <PropertyRef Name="SubCode" />
+          </Key>
+          <Property Name="SubCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubName" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Sem" Type="Int32" Nullable="false" />
+          <Property Name="DeptId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Elective" Type="Int32" />
+          <NavigationProperty Name="Attendances" Relationship="Self.FK_Attendance_Subject" FromRole="Subject" ToRole="Attendance" />
+          <NavigationProperty Name="AttendanceCounts" Relationship="Self.FK_AttendanceCount_Subject" FromRole="Subject" ToRole="AttendanceCount" />
+          <NavigationProperty Name="DEPT" Relationship="Self.FK_Subject_DEPT" FromRole="Subject" ToRole="DEPT" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Teacher">
+          <Key>
+            <PropertyRef Name="TID" />
+          </Key>
+          <Property Name="TID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeacherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeptId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Designation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="E_mail" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="DEPT" Relationship="Self.FK_Teacher_DEPT" FromRole="Teacher" ToRole="DEPT" />
+          <NavigationProperty Name="SubCombs" Relationship="Self.FK_SubComb_Teacher" FromRole="Teacher" ToRole="SubComb" />
+        </EntityType>
+        <EntityType Name="Valid">
+          <Key>
+            <PropertyRef Name="USN" />
+          </Key>
+          <Property Name="USN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PASSGEN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COUNTER" Type="Int32" Nullable="false" />
+          <Property Name="FG" Type="Boolean" Nullable="false" />
+          <Property Name="STUDENTDETAILS" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="STUDENT" Relationship="Self.FK_ValidS_STUDENT" FromRole="ValidS" ToRole="STUDENT" />
+        </EntityType>
+        <EntityType Name="LowerTable">
+          <Key>
+            <PropertyRef Name="Question" />
+            <PropertyRef Name="Ones" />
+            <PropertyRef Name="Twos" />
+            <PropertyRef Name="Threes" />
+            <PropertyRef Name="Fours" />
+          </Key>
+          <Property Name="Question" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Ones" Type="Int32" Nullable="false" />
+          <Property Name="Twos" Type="Int32" Nullable="false" />
+          <Property Name="Threes" Type="Int32" Nullable="false" />
+          <Property Name="Fours" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RID_TABLE">
+          <Key>
+            <PropertyRef Name="RID" />
+            <PropertyRef Name="A1" />
+            <PropertyRef Name="A2" />
+            <PropertyRef Name="A3" />
+            <PropertyRef Name="A4" />
+            <PropertyRef Name="A5" />
+            <PropertyRef Name="A6" />
+            <PropertyRef Name="A7" />
+            <PropertyRef Name="A8" />
+            <PropertyRef Name="A9" />
+            <PropertyRef Name="A10" />
+          </Key>
+          <Property Name="RID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="A1" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A2" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A3" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A4" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A5" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A6" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A7" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A8" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A9" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <Property Name="A10" Type="Decimal" Precision="10" Scale="4" Nullable="false" />
+          <NavigationProperty Name="SubComb" Relationship="Self.FK_RID_TABLE_SubComb" FromRole="RID_TABLE" ToRole="SubComb" />
+        </EntityType>
+        <EntityType Name="SubComb20140">
+          <Key>
+            <PropertyRef Name="CombId" />
+            <PropertyRef Name="TID" />
+            <PropertyRef Name="SubCode" />
+            <PropertyRef Name="Sem" />
+            <PropertyRef Name="DeptId" />
+            <PropertyRef Name="Section" />
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="CombId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sem" Type="Int32" Nullable="false" />
+          <Property Name="DeptId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Section" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CGPA" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="Elective" Type="Boolean" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Percentile" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="ClassesHeld" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SubComb2014E">
+          <Key>
+            <PropertyRef Name="CombId" />
+            <PropertyRef Name="TID" />
+            <PropertyRef Name="SubCode" />
+            <PropertyRef Name="Sem" />
+            <PropertyRef Name="DeptId" />
+            <PropertyRef Name="Section" />
+            <PropertyRef Name="Count" />
+          </Key>
+          <Property Name="CombId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SubCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sem" Type="Int32" Nullable="false" />
+          <Property Name="DeptId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Section" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CGPA" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="Elective" Type="Boolean" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Percentile" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="ClassesHeld" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Result">
+          <Key>
+            <PropertyRef Name="CombId" />
+            <PropertyRef Name="TeacherName" />
+            <PropertyRef Name="DeptId" />
+            <PropertyRef Name="SubCode" />
+            <PropertyRef Name="Sem" />
+            <PropertyRef Name="Section" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="CombId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TeacherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeptId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SubCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sem" Type="Int32" Nullable="false" />
+          <Property Name="Section" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Expr1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CGPA" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="Percentile" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="Total_Given" Type="Int32" />
+        </EntityType>
+        <EntityType Name="sucomb">
+          <Key>
+            <PropertyRef Name="TeacherName" />
+            <PropertyRef Name="DeptId" />
+            <PropertyRef Name="SubCode" />
+            <PropertyRef Name="Expr1" />
+          </Key>
+          <Property Name="TeacherName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeptId" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="SubCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Expr1" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Sem" Type="Int32" />
+          <Property Name="Section" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CGPA" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="Percentile" Type="Decimal" Precision="20" Scale="3" />
+          <Property Name="Total" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Attendance_STUDENT">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="USN" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="USN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Attendance_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+          <End Role="Attendance" Type="Self.Attendance" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubCode" />
+            </Principal>
+            <Dependent Role="Attendance">
+              <PropertyRef Name="Subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AttendanceCount_STUDENT">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1" />
+          <End Role="AttendanceCount" Type="Self.AttendanceCount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="USN" />
+            </Principal>
+            <Dependent Role="AttendanceCount">
+              <PropertyRef Name="USN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AttendanceCount_Subject">
+          <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
+          <End Role="AttendanceCount" Type="Self.AttendanceCount" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="SubCode" />
+            </Principal>
+            <Dependent Role="AttendanceCount">
+              <PropertyRef Name="Subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STUDENT_DEPT">
+          <End Role="DEPT" Type="Self.DEPT" Multiplicity="0..1" />
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPT">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="STUDENT">
+              <PropertyRef Name="DeptID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubComb_DEPT">
+          <End Role="DEPT" Type="Self.DEPT" Multiplicity="1" />
+          <End Role="SubComb" Type="Self.SubComb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPT">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="SubComb">
+              <PropertyRef Name="DeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Subject_DEPT">
+          <End Role="DEPT" Type="Self.DEPT" Multiplicity="0..1" />
+          <End Role="Subject" Type="Self.Subject" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPT">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="Subject">
+              <PropertyRef Name="DeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Teacher_DEPT">
+          <End Role="DEPT" Type="Self.DEPT" Multiplicity="1" />
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DEPT">
+              <PropertyRef Name="DeptId" />
+            </Principal>
+            <Dependent Role="Teacher">
+              <PropertyRef Name="DeptId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ELECTIVE_STUDENT">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ELECTIVE" Type="Self.ELECTIVE" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="USN" />
+            </Principal>
+            <Dependent Role="ELECTIVE">
+              <PropertyRef Name="USN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ValidS_STUDENT">
+          <End Role="STUDENT" Type="Self.STUDENT" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ValidS" Type="Self.Valid" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="STUDENT">
+              <PropertyRef Name="USN" />
+            </Principal>
+            <Dependent Role="ValidS">
+              <PropertyRef Name="USN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RID_TABLE_SubComb">
+          <End Role="SubComb" Type="Self.SubComb" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="RID_TABLE" Type="Self.RID_TABLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubComb">
+              <PropertyRef Name="CombId" />
+            </Principal>
+            <Dependent Role="RID_TABLE">
+              <PropertyRef Name="RID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SubComb_Teacher">
+          <End Role="Teacher" Type="Self.Teacher" Multiplicity="1" />
+          <End Role="SubComb" Type="Self.SubComb" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="TID" />
+            </Principal>
+            <Dependent Role="SubComb">
+              <PropertyRef Name="TID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RNSITEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Attendances" EntityType="Self.Attendance" />
+          <EntitySet Name="AttendanceCounts" EntityType="Self.AttendanceCount" />
+          <EntitySet Name="DEPTs" EntityType="Self.DEPT" />
+          <EntitySet Name="ELECTIVEs" EntityType="Self.ELECTIVE" />
+          <EntitySet Name="STUDENTs" EntityType="Self.STUDENT" />
+          <EntitySet Name="SubCombs" EntityType="Self.SubComb" />
+          <EntitySet Name="Subjects" EntityType="Self.Subject" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Teachers" EntityType="Self.Teacher" />
+          <EntitySet Name="ValidS" EntityType="Self.Valid" />
+          <EntitySet Name="LowerTables" EntityType="Self.LowerTable" />
+          <EntitySet Name="RID_TABLE" EntityType="Self.RID_TABLE" />
+          <EntitySet Name="SubComb20140" EntityType="Self.SubComb20140" />
+          <EntitySet Name="SubComb2014E" EntityType="Self.SubComb2014E" />
+          <EntitySet Name="Results" EntityType="Self.Result" />
+          <EntitySet Name="sucombs" EntityType="Self.sucomb" />
+          <AssociationSet Name="FK_Attendance_STUDENT" Association="Self.FK_Attendance_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENTs" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Attendance_Subject" Association="Self.FK_Attendance_Subject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="Attendance" EntitySet="Attendances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AttendanceCount_STUDENT" Association="Self.FK_AttendanceCount_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENTs" />
+            <End Role="AttendanceCount" EntitySet="AttendanceCounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AttendanceCount_Subject" Association="Self.FK_AttendanceCount_Subject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="AttendanceCount" EntitySet="AttendanceCounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STUDENT_DEPT" Association="Self.FK_STUDENT_DEPT">
+            <End Role="DEPT" EntitySet="DEPTs" />
+            <End Role="STUDENT" EntitySet="STUDENTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubComb_DEPT" Association="Self.FK_SubComb_DEPT">
+            <End Role="DEPT" EntitySet="DEPTs" />
+            <End Role="SubComb" EntitySet="SubCombs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Subject_DEPT" Association="Self.FK_Subject_DEPT">
+            <End Role="DEPT" EntitySet="DEPTs" />
+            <End Role="Subject" EntitySet="Subjects" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Teacher_DEPT" Association="Self.FK_Teacher_DEPT">
+            <End Role="DEPT" EntitySet="DEPTs" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ELECTIVE_STUDENT" Association="Self.FK_ELECTIVE_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENTs" />
+            <End Role="ELECTIVE" EntitySet="ELECTIVEs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ValidS_STUDENT" Association="Self.FK_ValidS_STUDENT">
+            <End Role="STUDENT" EntitySet="STUDENTs" />
+            <End Role="ValidS" EntitySet="ValidS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RID_TABLE_SubComb" Association="Self.FK_RID_TABLE_SubComb">
+            <End Role="SubComb" EntitySet="SubCombs" />
+            <End Role="RID_TABLE" EntitySet="RID_TABLE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SubComb_Teacher" Association="Self.FK_SubComb_Teacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="SubComb" EntitySet="SubCombs" />
+          </AssociationSet>
+          <FunctionImport Name="A1" ReturnType="Collection(RNSITModel.A1_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="A10" ReturnType="Collection(RNSITModel.A10_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="A2" ReturnType="Collection(RNSITModel.A2_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="A3" ReturnType="Collection(RNSITModel.A3_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="A4" ReturnType="Collection(RNSITModel.A4_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="A5" ReturnType="Collection(RNSITModel.A5_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="A6" ReturnType="Collection(RNSITModel.A6_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="A7" ReturnType="Collection(RNSITModel.A7_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="A8" ReturnType="Collection(RNSITModel.A8_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="A9" ReturnType="Collection(RNSITModel.A9_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="calc" />
+          <FunctionImport Name="department" ReturnType="Collection(String)">
+          <Parameter Name="dept" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetLowerTableByRID" ReturnType="Collection(RNSITModel.GetLowerTableByRID_Result)">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getScores">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetTeacherDetailsByUSN" ReturnType="Collection(RNSITModel.GetTeacherDetailsByUSN_Result)">
+          <Parameter Name="usn" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="NewInsertCommand">
+            <Parameter Name="RID" Mode="In" Type="String" />
+            <Parameter Name="A1" Mode="In" Type="Decimal" />
+            <Parameter Name="A2" Mode="In" Type="Decimal" />
+            <Parameter Name="A3" Mode="In" Type="Decimal" />
+            <Parameter Name="A4" Mode="In" Type="Decimal" />
+            <Parameter Name="A5" Mode="In" Type="Decimal" />
+            <Parameter Name="A6" Mode="In" Type="Decimal" />
+            <Parameter Name="A7" Mode="In" Type="Decimal" />
+            <Parameter Name="A8" Mode="In" Type="Decimal" />
+            <Parameter Name="A9" Mode="In" Type="Decimal" />
+            <Parameter Name="A10" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="NewSelectCommand" ReturnType="Collection(RNSITModel.NewSelectCommand_Result)" />
+          <FunctionImport Name="passgen" />
+          <FunctionImport Name="rating4c">
+          <Parameter Name="rid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <FunctionImport Name="spGetAll" ReturnType="Collection(RNSITModel.spGetAll_Result)" />
+          <FunctionImport Name="spGetDepartments" ReturnType="Collection(RNSITModel.spGetDepartments_Result)" />
+          <FunctionImport Name="spGetGivenNotGiven" />
+          <FunctionImport Name="spGetPasswordsForClass" ReturnType="Collection(RNSITModel.spGetPasswordsForClass_Result)">
+            <Parameter Name="deptId" Mode="In" Type="String" />
+            <Parameter Name="sem" Mode="In" Type="Int32" />
+            <Parameter Name="sec" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetResultshv" ReturnType="Collection(RNSITModel.spGetResultshv_Result)" />
+          <FunctionImport Name="spGetSection" ReturnType="Collection(RNSITModel.spGetSection_Result)">
+            <Parameter Name="DeptId" Mode="In" Type="String" />
+            <Parameter Name="Sem" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="spGetSem" ReturnType="Collection(RNSITModel.spGetSem_Result)">
+          <Parameter Name="DeptId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="spGetUpperTable" ReturnType="Collection(RNSITModel.spGetUpperTable_Result)">
+          <Parameter Name="combid" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GetTeacherDetailsByUSNFunction" ReturnType="Collection(RNSITModel.GetTeacherDetailsByUSN_Result)">
+          <Parameter Name="usn" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="A1_Result">
+          <Property Type="Int32" Name="No__of_1s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_2s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_3s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_4s" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="A10_Result">
+          <Property Type="Int32" Name="No__of_1s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_2s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_3s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_4s" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="A2_Result">
+          <Property Type="Int32" Name="No__of_1s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_2s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_3s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_4s" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="A3_Result">
+          <Property Type="Int32" Name="No__of_1s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_2s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_3s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_4s" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="A4_Result">
+          <Property Type="Int32" Name="No__of_1s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_2s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_3s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_4s" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="A5_Result">
+          <Property Type="Int32" Name="No__of_1s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_2s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_3s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_4s" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="A6_Result">
+          <Property Type="Int32" Name="No__of_1s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_2s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_3s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_4s" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="A7_Result">
+          <Property Type="Int32" Name="No__of_1s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_2s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_3s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_4s" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="A8_Result">
+          <Property Type="Int32" Name="No__of_1s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_2s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_3s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_4s" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="A9_Result">
+          <Property Type="Int32" Name="No__of_1s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_2s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_3s" Nullable="true" />
+          <Property Type="Int32" Name="No__of_4s" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="GetLowerTableByRID_Result">
+          <Property Type="String" Name="Question" Nullable="false" MaxLength="1000" />
+          <Property Type="Int32" Name="Ones" Nullable="false" />
+          <Property Type="Int32" Name="Twos" Nullable="false" />
+          <Property Type="Int32" Name="Threes" Nullable="false" />
+          <Property Type="Int32" Name="Fours" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="GetTeacherDetailsByUSN_Result">
+          <Property Type="String" Name="SubCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SubName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="TeacherName" Nullable="false" MaxLength="100" />
+          <Property Type="Boolean" Name="Elective" Nullable="true" />
+          <Property Type="String" Name="CombId" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="NewSelectCommand_Result">
+          <Property Type="String" Name="RID" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="A1" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="A2" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="A3" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="A4" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="A5" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="A6" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="A7" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="A8" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="A9" Nullable="false" Precision="10" Scale="4" />
+          <Property Type="Decimal" Name="A10" Nullable="false" Precision="10" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="spGetAll_Result">
+          <Property Type="String" Name="DeptId" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="Sem" Nullable="false" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="SubCode" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="CombId" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spGetDepartments_Result">
+          <Property Type="String" Name="DeptId" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="DeptName" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spGetPasswordsForClass_Result">
+          <Property Type="String" Name="USN" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="PASSGEN" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="spGetResultshv_Result">
+          <Property Type="String" Name="TeacherName" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="DeptId" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="SubCode" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Sem" Nullable="false" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="Expr1" Nullable="false" MaxLength="10" />
+          <Property Type="Decimal" Name="CGPA" Nullable="true" Precision="20" Scale="3" />
+          <Property Type="Decimal" Name="Percentile" Nullable="true" Precision="20" Scale="3" />
+        </ComplexType>
+        <ComplexType Name="spGetSection_Result">
+          <Property Type="String" Name="Value" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ID" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <ComplexType Name="spGetSem_Result">
+          <Property Type="Int32" Name="Value" Nullable="false" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="spGetUpperTable_Result">
+          <Property Type="String" Name="CombId" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DeptId" Nullable="false" MaxLength="10" />
+          <Property Type="Int32" Name="Sem" Nullable="false" />
+          <Property Type="String" Name="Section" Nullable="false" MaxLength="10" />
+          <Property Type="String" Name="TeacherName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="StaffDept" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="TID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="SubName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="SubCode" Nullable="false" MaxLength="50" />
+          <Property Type="Decimal" Name="CGPA" Nullable="true" Precision="20" Scale="3" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RNSITModelStoreContainer" CdmEntityContainer="RNSITEntities1">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="RNSITModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Attendances">
+            <EntityTypeMapping TypeName="RNSITModel.Attendance">
+              <MappingFragment StoreEntitySet="Attendance">
+                <ScalarProperty Name="DateHeld" ColumnName="DateHeld" />
+                <ScalarProperty Name="USN" ColumnName="USN" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="present" ColumnName="present" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AttendanceCounts">
+            <EntityTypeMapping TypeName="RNSITModel.AttendanceCount">
+              <MappingFragment StoreEntitySet="AttendanceCount">
+                <ScalarProperty Name="USN" ColumnName="USN" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Attended" ColumnName="Attended" />
+                <ScalarProperty Name="I1" ColumnName="I1" />
+                <ScalarProperty Name="I2" ColumnName="I2" />
+                <ScalarProperty Name="I3" ColumnName="I3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DEPTs">
+            <EntityTypeMapping TypeName="RNSITModel.DEPT">
+              <MappingFragment StoreEntitySet="DEPT">
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ELECTIVEs">
+            <EntityTypeMapping TypeName="RNSITModel.ELECTIVE">
+              <MappingFragment StoreEntitySet="ELECTIVE">
+                <ScalarProperty Name="USN" ColumnName="USN" />
+                <ScalarProperty Name="ELECTIVE1" ColumnName="ELECTIVE1" />
+                <ScalarProperty Name="ELECTIVE2" ColumnName="ELECTIVE2" />
+                <ScalarProperty Name="ELECTIVE3" ColumnName="ELECTIVE3" />
+                <ScalarProperty Name="ELECTIVE4" ColumnName="ELECTIVE4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="STUDENTs">
+            <EntityTypeMapping TypeName="RNSITModel.STUDENT">
+              <MappingFragment StoreEntitySet="STUDENT">
+                <ScalarProperty Name="USN" ColumnName="USN" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DOB" ColumnName="DOB" />
+                <ScalarProperty Name="FATHERNAME" ColumnName="FATHERNAME" />
+                <ScalarProperty Name="MOTHERNAME" ColumnName="MOTHERNAME" />
+                <ScalarProperty Name="GUARDIANNAME" ColumnName="GUARDIANNAME" />
+                <ScalarProperty Name="PERM_ADDRESS" ColumnName="PERM_ADDRESS" />
+                <ScalarProperty Name="LOC_ADDRESS" ColumnName="LOC_ADDRESS" />
+                <ScalarProperty Name="MOBILE" ColumnName="MOBILE" />
+                <ScalarProperty Name="PRIMARY_CONTACT" ColumnName="PRIMARY_CONTACT" />
+                <ScalarProperty Name="DeptID" ColumnName="DeptID" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="EMail" ColumnName="EMail" />
+                <ScalarProperty Name="SSLC" ColumnName="SSLC" />
+                <ScalarProperty Name="PUC" ColumnName="PUC" />
+                <ScalarProperty Name="Batch" ColumnName="Batch" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubCombs">
+            <EntityTypeMapping TypeName="RNSITModel.SubComb">
+              <MappingFragment StoreEntitySet="SubComb">
+                <ScalarProperty Name="CombId" ColumnName="CombId" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+                <ScalarProperty Name="Elective" ColumnName="Elective" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Percentile" ColumnName="Percentile" />
+                <ScalarProperty Name="ClassesHeld" ColumnName="ClassesHeld" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Subjects">
+            <EntityTypeMapping TypeName="RNSITModel.Subject">
+              <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="SubName" ColumnName="SubName" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="Elective" ColumnName="Elective" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RNSITModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Teachers">
+            <EntityTypeMapping TypeName="RNSITModel.Teacher">
+              <MappingFragment StoreEntitySet="Teacher">
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="Designation" ColumnName="Designation" />
+                <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ValidS">
+            <EntityTypeMapping TypeName="RNSITModel.Valid">
+              <MappingFragment StoreEntitySet="ValidS">
+                <ScalarProperty Name="USN" ColumnName="USN" />
+                <ScalarProperty Name="PASSGEN" ColumnName="PASSGEN" />
+                <ScalarProperty Name="COUNTER" ColumnName="COUNTER" />
+                <ScalarProperty Name="FG" ColumnName="FG" />
+                <ScalarProperty Name="STUDENTDETAILS" ColumnName="STUDENTDETAILS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LowerTables">
+            <EntityTypeMapping TypeName="RNSITModel.LowerTable">
+              <MappingFragment StoreEntitySet="LowerTable">
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Ones" ColumnName="Ones" />
+                <ScalarProperty Name="Twos" ColumnName="Twos" />
+                <ScalarProperty Name="Threes" ColumnName="Threes" />
+                <ScalarProperty Name="Fours" ColumnName="Fours" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RID_TABLE">
+            <EntityTypeMapping TypeName="RNSITModel.RID_TABLE">
+              <MappingFragment StoreEntitySet="RID_TABLE">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="A1" ColumnName="A1" />
+                <ScalarProperty Name="A2" ColumnName="A2" />
+                <ScalarProperty Name="A3" ColumnName="A3" />
+                <ScalarProperty Name="A4" ColumnName="A4" />
+                <ScalarProperty Name="A5" ColumnName="A5" />
+                <ScalarProperty Name="A6" ColumnName="A6" />
+                <ScalarProperty Name="A7" ColumnName="A7" />
+                <ScalarProperty Name="A8" ColumnName="A8" />
+                <ScalarProperty Name="A9" ColumnName="A9" />
+                <ScalarProperty Name="A10" ColumnName="A10" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubComb20140">
+            <EntityTypeMapping TypeName="RNSITModel.SubComb20140">
+              <MappingFragment StoreEntitySet="SubComb20140">
+                <ScalarProperty Name="CombId" ColumnName="CombId" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+                <ScalarProperty Name="Elective" ColumnName="Elective" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Percentile" ColumnName="Percentile" />
+                <ScalarProperty Name="ClassesHeld" ColumnName="ClassesHeld" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SubComb2014E">
+            <EntityTypeMapping TypeName="RNSITModel.SubComb2014E">
+              <MappingFragment StoreEntitySet="SubComb2014E">
+                <ScalarProperty Name="CombId" ColumnName="CombId" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+                <ScalarProperty Name="Elective" ColumnName="Elective" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Percentile" ColumnName="Percentile" />
+                <ScalarProperty Name="ClassesHeld" ColumnName="ClassesHeld" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Results">
+            <EntityTypeMapping TypeName="RNSITModel.Result">
+              <MappingFragment StoreEntitySet="Result">
+                <ScalarProperty Name="CombId" ColumnName="CombId" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+                <ScalarProperty Name="Percentile" ColumnName="Percentile" />
+                <ScalarProperty Name="Total_Given" ColumnName="Total_Given" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sucombs">
+            <EntityTypeMapping TypeName="RNSITModel.sucomb">
+              <MappingFragment StoreEntitySet="sucombs">
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+                <ScalarProperty Name="Percentile" ColumnName="Percentile" />
+                <ScalarProperty Name="Total" ColumnName="Total" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="A1" FunctionName="RNSITModel.Store.A1">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.A1_Result">
+                <ScalarProperty Name="No__of_1s" ColumnName="No._of_1s" />
+                <ScalarProperty Name="No__of_2s" ColumnName="No._of_2s" />
+                <ScalarProperty Name="No__of_3s" ColumnName="No._of_3s" />
+                <ScalarProperty Name="No__of_4s" ColumnName="No._of_4s" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="A10" FunctionName="RNSITModel.Store.A10">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.A10_Result">
+                <ScalarProperty Name="No__of_1s" ColumnName="No._of_1s" />
+                <ScalarProperty Name="No__of_2s" ColumnName="No._of_2s" />
+                <ScalarProperty Name="No__of_3s" ColumnName="No._of_3s" />
+                <ScalarProperty Name="No__of_4s" ColumnName="No._of_4s" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="A2" FunctionName="RNSITModel.Store.A2">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.A2_Result">
+                <ScalarProperty Name="No__of_1s" ColumnName="No._of_1s" />
+                <ScalarProperty Name="No__of_2s" ColumnName="No._of_2s" />
+                <ScalarProperty Name="No__of_3s" ColumnName="No._of_3s" />
+                <ScalarProperty Name="No__of_4s" ColumnName="No._of_4s" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="A3" FunctionName="RNSITModel.Store.A3">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.A3_Result">
+                <ScalarProperty Name="No__of_1s" ColumnName="No._of_1s" />
+                <ScalarProperty Name="No__of_2s" ColumnName="No._of_2s" />
+                <ScalarProperty Name="No__of_3s" ColumnName="No._of_3s" />
+                <ScalarProperty Name="No__of_4s" ColumnName="No._of_4s" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="A4" FunctionName="RNSITModel.Store.A4">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.A4_Result">
+                <ScalarProperty Name="No__of_1s" ColumnName="No._of_1s" />
+                <ScalarProperty Name="No__of_2s" ColumnName="No._of_2s" />
+                <ScalarProperty Name="No__of_3s" ColumnName="No._of_3s" />
+                <ScalarProperty Name="No__of_4s" ColumnName="No._of_4s" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="A5" FunctionName="RNSITModel.Store.A5">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.A5_Result">
+                <ScalarProperty Name="No__of_1s" ColumnName="No._of_1s" />
+                <ScalarProperty Name="No__of_2s" ColumnName="No._of_2s" />
+                <ScalarProperty Name="No__of_3s" ColumnName="No._of_3s" />
+                <ScalarProperty Name="No__of_4s" ColumnName="No._of_4s" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="A6" FunctionName="RNSITModel.Store.A6">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.A6_Result">
+                <ScalarProperty Name="No__of_1s" ColumnName="No._of_1s" />
+                <ScalarProperty Name="No__of_2s" ColumnName="No._of_2s" />
+                <ScalarProperty Name="No__of_3s" ColumnName="No._of_3s" />
+                <ScalarProperty Name="No__of_4s" ColumnName="No._of_4s" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="A7" FunctionName="RNSITModel.Store.A7">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.A7_Result">
+                <ScalarProperty Name="No__of_1s" ColumnName="No._of_1s" />
+                <ScalarProperty Name="No__of_2s" ColumnName="No._of_2s" />
+                <ScalarProperty Name="No__of_3s" ColumnName="No._of_3s" />
+                <ScalarProperty Name="No__of_4s" ColumnName="No._of_4s" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="A8" FunctionName="RNSITModel.Store.A8">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.A8_Result">
+                <ScalarProperty Name="No__of_1s" ColumnName="No._of_1s" />
+                <ScalarProperty Name="No__of_2s" ColumnName="No._of_2s" />
+                <ScalarProperty Name="No__of_3s" ColumnName="No._of_3s" />
+                <ScalarProperty Name="No__of_4s" ColumnName="No._of_4s" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="A9" FunctionName="RNSITModel.Store.A9">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.A9_Result">
+                <ScalarProperty Name="No__of_1s" ColumnName="No._of_1s" />
+                <ScalarProperty Name="No__of_2s" ColumnName="No._of_2s" />
+                <ScalarProperty Name="No__of_3s" ColumnName="No._of_3s" />
+                <ScalarProperty Name="No__of_4s" ColumnName="No._of_4s" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="calc" FunctionName="RNSITModel.Store.calc" />
+          <FunctionImportMapping FunctionImportName="department" FunctionName="RNSITModel.Store.department" />
+          <FunctionImportMapping FunctionImportName="GetLowerTableByRID" FunctionName="RNSITModel.Store.GetLowerTableByRID">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.GetLowerTableByRID_Result">
+                <ScalarProperty Name="Question" ColumnName="Question" />
+                <ScalarProperty Name="Ones" ColumnName="Ones" />
+                <ScalarProperty Name="Twos" ColumnName="Twos" />
+                <ScalarProperty Name="Threes" ColumnName="Threes" />
+                <ScalarProperty Name="Fours" ColumnName="Fours" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getScores" FunctionName="RNSITModel.Store.getScores" />
+          <FunctionImportMapping FunctionImportName="GetTeacherDetailsByUSN" FunctionName="RNSITModel.Store.GetTeacherDetailsByUSN">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.GetTeacherDetailsByUSN_Result">
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="SubName" ColumnName="SubName" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="Elective" ColumnName="Elective" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="NewInsertCommand" FunctionName="RNSITModel.Store.NewInsertCommand" />
+          <FunctionImportMapping FunctionImportName="NewSelectCommand" FunctionName="RNSITModel.Store.NewSelectCommand">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.NewSelectCommand_Result">
+                <ScalarProperty Name="RID" ColumnName="RID" />
+                <ScalarProperty Name="A1" ColumnName="A1" />
+                <ScalarProperty Name="A2" ColumnName="A2" />
+                <ScalarProperty Name="A3" ColumnName="A3" />
+                <ScalarProperty Name="A4" ColumnName="A4" />
+                <ScalarProperty Name="A5" ColumnName="A5" />
+                <ScalarProperty Name="A6" ColumnName="A6" />
+                <ScalarProperty Name="A7" ColumnName="A7" />
+                <ScalarProperty Name="A8" ColumnName="A8" />
+                <ScalarProperty Name="A9" ColumnName="A9" />
+                <ScalarProperty Name="A10" ColumnName="A10" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="passgen" FunctionName="RNSITModel.Store.passgen" />
+          <FunctionImportMapping FunctionImportName="rating4c" FunctionName="RNSITModel.Store.rating4c" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="RNSITModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="RNSITModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="RNSITModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="RNSITModel.Store.sp_helpdiagramdefinition" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="RNSITModel.Store.sp_helpdiagrams" />
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="RNSITModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="RNSITModel.Store.sp_upgraddiagrams" />
+          <FunctionImportMapping FunctionImportName="spGetAll" FunctionName="RNSITModel.Store.spGetAll">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.spGetAll_Result">
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="CombId" ColumnName="CombId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetDepartments" FunctionName="RNSITModel.Store.spGetDepartments">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.spGetDepartments_Result">
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="DeptName" ColumnName="DeptName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetGivenNotGiven" FunctionName="RNSITModel.Store.spGetGivenNotGiven" />
+          <FunctionImportMapping FunctionImportName="spGetPasswordsForClass" FunctionName="RNSITModel.Store.spGetPasswordsForClass">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.spGetPasswordsForClass_Result">
+                <ScalarProperty Name="USN" ColumnName="USN" />
+                <ScalarProperty Name="PASSGEN" ColumnName="PASSGEN" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetResultshv" FunctionName="RNSITModel.Store.spGetResultshv">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.spGetResultshv_Result">
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="Expr1" ColumnName="Expr1" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+                <ScalarProperty Name="Percentile" ColumnName="Percentile" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetSection" FunctionName="RNSITModel.Store.spGetSection">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.spGetSection_Result">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetSem" FunctionName="RNSITModel.Store.spGetSem">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.spGetSem_Result">
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="spGetUpperTable" FunctionName="RNSITModel.Store.spGetUpperTable">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.spGetUpperTable_Result">
+                <ScalarProperty Name="CombId" ColumnName="CombId" />
+                <ScalarProperty Name="DeptId" ColumnName="DeptId" />
+                <ScalarProperty Name="Sem" ColumnName="Sem" />
+                <ScalarProperty Name="Section" ColumnName="Section" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="StaffDept" ColumnName="StaffDept" />
+                <ScalarProperty Name="TID" ColumnName="TID" />
+                <ScalarProperty Name="SubName" ColumnName="SubName" />
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="CGPA" ColumnName="CGPA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="GetTeacherDetailsByUSNFunction" FunctionName="RNSITModel.Store.GetTeacherDetailsByUSN">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="RNSITModel.GetTeacherDetailsByUSN_Result">
+                <ScalarProperty Name="SubCode" ColumnName="SubCode" />
+                <ScalarProperty Name="SubName" ColumnName="SubName" />
+                <ScalarProperty Name="TeacherName" ColumnName="TeacherName" />
+                <ScalarProperty Name="Elective" ColumnName="Elective" />
+                <ScalarProperty Name="CombId" ColumnName="CombId" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

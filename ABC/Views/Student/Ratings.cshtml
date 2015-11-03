@@ -1,0 +1,212 @@
+﻿@model ABC.Models.RatingsModel
+
+@{
+    ViewBag.Title = "Ratings-Teacher";
+}
+
+
+<section class="container" id="main">
+
+    <!-- Start Survey container -->
+    <div id="survey_container" class="white-gradient">
+
+
+
+        @using (Html.BeginForm())
+        {
+
+            @Html.AntiForgeryToken()
+            <div id="middle-wizard">
+                <br/>
+                @Html.DisplayFor(m => m.Subcode);
+                <br />
+                @Html.DisplayFor(m => m.TeacherName);
+                <br />
+                @Html.DisplayFor(m => m.SubName);
+                <br />
+                <div class="step row">
+                    @Html.ValidationSummary(true)
+
+                    <br />
+                    <h3><br />1.Effective Communication and Clarity in Explanation</h3>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(model => model.A1).ToHtmlString())) </li>
+                            <li>@Html.RadioButtonFor(model => model.A1, "4", new { @class = "required" })<label class="label_gender"> Very Effective and Clear</label></li>
+                            <li>@Html.RadioButtonFor(model => model.A1, "2", new { @class = "required" })<label class="label_gender"> Moderately effective and Reasonably clear</label></li>
+
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                <br/>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.RadioButtonFor(model => model.A1, "3", new { @class = "required" })<label class="label_gender"> Effective and Understandable</label></li>
+                            <li>@Html.RadioButtonFor(model => model.A1, "1", new { @class = "required" })<label class="label_gender"> Ineffective and not clear</label></li>
+                        </ul>
+                    </div><!-- end col-md-6 -->
+
+                    <br />
+                    <h3><br />2. Preparedness and Depth of Subject Knowledge (Relevant Practical Applications wherever applicable)</h3>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(model => model.A2).ToHtmlString())) </li>
+                            <li>@Html.RadioButtonFor(model => model.A2, "4", new { @class = "required" })<label class="label_gender"> In-depth</label></li>
+                            <li>@Html.RadioButtonFor(model => model.A2, "2", new { @class = "required" })<label class="label_gender"> Moderate</label></li>
+
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.RadioButtonFor(model => model.A2, "3", new { @class = "required" })<label class="label_gender"> Adequate</label></li>
+                            <li>@Html.RadioButtonFor(model => model.A2, "1", new { @class = "required" })<label class="label_gender"> Inadequate</label></li>
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <br />
+                   <h3><br />3. Time Management (Effective use of the class hour and timely coverage of syllabus)</h3>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(model => model.A3).ToHtmlString())) </li>
+                            <li>@Html.RadioButtonFor(model => model.A3, "4", new { @class = "required" })<label class="label_gender"> Complete Utilization and Satisfactory Coverage</label></li>
+                            <li>@Html.RadioButtonFor(model => model.A3, "2", new { @class = "required" })<label class="label_gender"> Partial Utilization and Unsatisfactory Coverage</label></li>
+
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.RadioButtonFor(model => model.A3, "3", new { @class = "required" })<label class="label_gender"> Complete Utilization and Adequate Coverage</label></li>
+                            <li>@Html.RadioButtonFor(model => model.A3, "1", new { @class = "required" })<label class="label_gender"> Partial Utilization and  Under Coverage </label></li>
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <br />
+                    <br />
+                    <h3><br />4. Enforcement of Discipline in the class</h3>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(model => model.A4).ToHtmlString())) </li>
+                            <li>@Html.RadioButtonFor(model => model.A4, "4", new { @class = "required" })<label class="label_gender"> Excellent Control</label></li>
+                            <li>@Html.RadioButtonFor(model => model.A4, "2", new { @class = "required" })<label class="label_gender"> Moderate Control</label></li>
+
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.RadioButtonFor(model => model.A4, "3", new { @class = "required" })<label class="label_gender"> Good Control</label></li>
+                            <li>@Html.RadioButtonFor(model => model.A4, "1", new { @class = "required" })<label class="label_gender"> Poor Control</label></li>
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <br />
+
+                    <h3><br />5. Invites Questions and Encourages Thinking (Class Motivation towards Enhanced Learning)</h3>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(model => model.A5).ToHtmlString())) </li>
+                            <li>@Html.RadioButtonFor(model => model.A5, "4", new { @class = "required" })<label class="label_gender"> Most of the time </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A5, "2", new { @class = "required" })<label class="label_gender"> Rarely</label></li>
+
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.RadioButtonFor(model => model.A5, "3", new { @class = "required" })<label class="label_gender"> Occassionally</label></li>
+                            <li>@Html.RadioButtonFor(model => model.A5, "1", new { @class = "required" })<label class="label_gender"> Never</label></li>
+                        </ul>
+                    </div><!-- end col-md-6 -->
+
+                    <br />
+                    <h3><br />6. Provide discussions on Problems, Programs, Assignments, Quiz, case studies/situation analysis, Exam questions and Illustrations</h3>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(model => model.A6).ToHtmlString())) </li>
+                            <li>@Html.RadioButtonFor(model => model.A6, "4", new { @class = "required" })<label class="label_gender">Most of the time </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A6, "2", new { @class = "required" })<label class="label_gender"> Rarely </label></li>
+
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.RadioButtonFor(model => model.A6, "3", new { @class = "required" })<label class="label_gender"> Occasionally </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A6, "1", new { @class = "required" })<label class="label_gender"> Never </label></li>
+                        </ul>
+                    </div><!-- end col-md-6 -->
+
+                    <br />
+                    <h3><br />7. Availability, Accessibility and Approachability for clarifications outside the Class</h3>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(model => model.A7).ToHtmlString())) </li>
+                            <li>@Html.RadioButtonFor(model => model.A7, "4", new { @class = "required" })<label class="label_gender"> Most of the time </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A7, "2", new { @class = "required" })<label class="label_gender"> Rarely </label></li>
+
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.RadioButtonFor(model => model.A7, "3", new { @class = "required" })<label class="label_gender"> Occasionally </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A7, "1", new { @class = "required" })<label class="label_gender"> Never </label></li>
+                        </ul>
+                    </div><!-- end col-md-6 -->
+
+                    <br />
+                    <h3><br />8. Study materials such as Lecture notes, handouts, PPTs, etc</h3>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(model => model.A8).ToHtmlString())) </li>
+                            <li>@Html.RadioButtonFor(model => model.A8, "4", new { @class = "required" })<label class="label_gender"> Very Useful </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A8, "2", new { @class = "required" })<label class="label_gender"> Satisfactory  </label></li>
+
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.RadioButtonFor(model => model.A8, "3", new { @class = "required" })<label class="label_gender"> Useful </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A8, "1", new { @class = "required" })<label class="label_gender"> Less Useful </label></li>
+                        </ul>
+                    </div><!-- end col-md-6 -->
+
+                    <br />
+                    <h3><br />9. Coverage of Syllabus</h3>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(model => model.A9).ToHtmlString())) </li>
+                            <li>@Html.RadioButtonFor(model => model.A9, "4", new { @class = "required" })<label class="label_gender"> Well Covered </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A9, "2", new { @class = "required" })<label class="label_gender"> Moderately Covered </label></li>
+
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.RadioButtonFor(model => model.A9, "3", new { @class = "required" })<label class="label_gender"> Adequately Covered </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A9, "1", new { @class = "required" })<label class="label_gender"> Poorly Covered </label></li>
+                        </ul>
+                    </div><!-- end col-md-6 -->
+
+                    <br />
+                    <h3><br />10. Evaluation of Tests/Assignments with suggestions for Improvement</h3>
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.Raw(HttpUtility.HtmlDecode(Html.ValidationMessageFor(model => model.A10).ToHtmlString())) </li>
+                            <li>@Html.RadioButtonFor(model => model.A10, "4", new { @class = "required" })<label class="label_gender"> Very Fair </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A10, "2", new { @class = "required" })<label class="label_gender"> Satisfactory  </label></li>
+
+                        </ul>
+                    </div><!-- end col-md-6 -->
+                    <div class="col-md-6">
+                        <ul class="data-list">
+                            <li>@Html.RadioButtonFor(model => model.A10, "3", new { @class = "required" })<label class="label_gender"> Fair  </label></li>
+                            <li>@Html.RadioButtonFor(model => model.A10, "1", new { @class = "required" })<label class="label_gender"> Unfair </label></li>
+                        </ul>
+                    </div><!-- end col-md-6 -->
+
+
+
+                </div><!-- end step -->
+                <br /><br />
+            </div><!-- end Middle Wizard-->
+            <div id="bottom-wizard">
+                <input type="submit" value="Submit" class="button-cust button-green" />
+            </div>
+        }
+
+    </div><!-- end Survey container -->
+
+</section><!-- end section main container -->
